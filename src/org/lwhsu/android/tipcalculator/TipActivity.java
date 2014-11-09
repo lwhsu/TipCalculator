@@ -1,5 +1,7 @@
 package org.lwhsu.android.tipcalculator;
 
+import java.text.DecimalFormat;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -43,6 +45,6 @@ public class TipActivity extends Activity {
         final double percent = Double.parseDouble(v.getTag().toString());
         final double tipAmount = amount * percent;
 
-        tvTipAmount.setText("Tip is: $" + tipAmount);
+        tvTipAmount.setText("Tip is: " + new DecimalFormat("$#,##0.00").format(tipAmount));
     }
 }
