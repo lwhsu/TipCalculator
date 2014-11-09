@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class TipActivity extends Activity {
 
@@ -30,5 +33,27 @@ public class TipActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void calcTip(final double percent) {
+        final EditText etAmount = (EditText) findViewById(R.id.etAmount);
+        final TextView tvTipAmount = (TextView) findViewById(R.id.tvTipAmount);
+
+        final double amount = Double.parseDouble((etAmount.getText().toString()));
+        final double tipAmount = amount * percent;
+
+        tvTipAmount.setText("Tip is: $" + tipAmount);
+    }
+
+    public void calcTip10(final View v) {
+        calcTip(0.10);
+    }
+
+    public void calcTip15(final View v) {
+        calcTip(0.15);
+    }
+
+    public void calcTip20(final View v) {
+        calcTip(0.20);
     }
 }
