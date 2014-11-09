@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:onClick="calcTip"
+        android:onClick="changePercentage"
         android:tag="0.15"
         android:text="15%" />
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/btn15percent"
-        android:onClick="calcTip"
+        android:onClick="changePercentage"
         android:tag="0.10"
         android:text="10%" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/btn15percent"
-        android:onClick="calcTip"
+        android:onClick="changePercentage"
         android:tag="0.20"
         android:text="20%" />
 

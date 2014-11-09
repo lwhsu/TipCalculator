@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 public class TipActivity extends Activity {
 
+    private double percentage = 0.10;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +39,17 @@ public class TipActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void calcTip(final View v) {
+    public void changePercentage(final View v) {
+        percentage = Double.parseDouble(v.getTag().toString());
+        calcTip();
+    }
+
+    private void calcTip() {
         final EditText etAmount = (EditText) findViewById(R.id.etAmount);
         final TextView tvTipAmount = (TextView) findViewById(R.id.tvTipAmount);
 
         final double amount = Double.parseDouble((etAmount.getText().toString()));
-        final double percent = Double.parseDouble(v.getTag().toString());
-        final double tipAmount = amount * percent;
+        final double tipAmount = amount * percentage;
 
         tvTipAmount.setText("Tip is: " + new DecimalFormat("$#,##0.00").format(tipAmount));
     }
