@@ -75,6 +75,7 @@ public class TipActivity extends Activity {
         final double amount = Double.parseDouble((etAmount.getText().toString()));
         final double tipAmount = amount * percentage;
 
-        tvTipAmount.setText("Tip is: " + new DecimalFormat("$#,##0.00").format(tipAmount));
+        tvTipAmount.setText("Tip is: " + new DecimalFormat("$#,##0.00").format(tipAmount)
+                + " (" + new DecimalFormat("#%").format(percentage) + ")");
     }
 }
