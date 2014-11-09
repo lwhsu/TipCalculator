@@ -72,10 +72,14 @@ public class TipActivity extends Activity {
         final EditText etAmount = (EditText) findViewById(R.id.etAmount);
         final TextView tvTipAmount = (TextView) findViewById(R.id.tvTipAmount);
 
-        final double amount = Double.parseDouble((etAmount.getText().toString()));
-        final double tipAmount = amount * percentage;
+        try {
+            final double amount = Double.parseDouble((etAmount.getText().toString()));
+            final double tipAmount = amount * percentage;
 
-        tvTipAmount.setText("Tip is: " + new DecimalFormat("$#,##0.00").format(tipAmount)
-                + " (" + new DecimalFormat("#%").format(percentage) + ")");
+            tvTipAmount.setText("Tip is: " + new DecimalFormat("$#,##0.00").format(tipAmount)
+                    + " (" + new DecimalFormat("#%").format(percentage) + ")");
+        } catch (final Exception e) {
+            tvTipAmount.setText("Tip is: N/A");
+        }
     }
 }
